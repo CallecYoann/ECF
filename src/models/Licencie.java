@@ -5,6 +5,8 @@
  */
 package models;
 
+import java.util.Calendar;
+
 /**
  *
  * @author callec
@@ -15,14 +17,8 @@ public class Licencie extends Personne {
     double pointsFFV;
     int anneeLicence;
 
-    public Licencie(int numLicence, double pointsFFV, int anneeLicence, String nom, String prenom, String email) {
-        super(nom, prenom, email);
-        this.numLicence = numLicence;
-        this.pointsFFV = pointsFFV;
-        this.anneeLicence = anneeLicence;
-    }
-    
-    public Licencie(int numLicence, double pointsFFV, int anneeLicence) {
+    public Licencie(int numLicence, double pointsFFV, int anneeLicence, String nom, String prenom, String email, int anneeNaissance) {
+        super(nom, prenom, email, anneeNaissance);
         this.numLicence = numLicence;
         this.pointsFFV = pointsFFV;
         this.anneeLicence = anneeLicence;
@@ -55,9 +51,15 @@ public class Licencie extends Personne {
 
     @Override
     public String toString() {
-        return "Licencie{" + "numLicence=" + numLicence + ", pointsFFV=" + pointsFFV + ", anneeLicence=" + anneeLicence + '}';
+        return "Licencie - " + super.toString() + " " + "numLicence=" + numLicence + ", pointsFFV=" + pointsFFV + ", anneeLicence=" + anneeLicence + '}';
     }
-
     
+    public void  calculPoints(int nvxPoints, Calendar cal) throws Exception {
+        
+        if(anneeLicence != cal.get(Calendar.YEAR)) {
+            throw new Exception("La date de licence n'est pas valide");
+        }
+            pointsFFV = pointsFFV + nvxPoints;
+    }
     
 }

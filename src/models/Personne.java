@@ -68,17 +68,17 @@ public class Personne {
 
     @Override
     public String toString() {
-        return "Personne{" + "nom=" + nom + ", prenom=" + prenom + ", email=" + email + '}' + calculAge();
+        return "Nom:" + nom + ", Prenom:" + prenom + ", Email:" + email + " " + "age:" + calculAge();
     }
     
     public int calculAge() {
         
        Calendar now = Calendar.getInstance();
        
-        int age;
+        
         int anneeActuelle = now.get(Calendar.YEAR);
         
-        age = anneeActuelle - this.getAnneeNaissance();
+        int age = anneeActuelle - this.getAnneeNaissance();
        
         return age;
         

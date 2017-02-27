@@ -13,8 +13,8 @@ public class Commissaire extends Personne {
     
     String comite;
 
-    public Commissaire(String comite, String nom, String prenom, String email) {
-        super(nom, prenom, email);
+    public Commissaire(String comite, String nom, String prenom, String email, int anneeNaissance) {
+        super(nom, prenom, email, anneeNaissance);
         this.comite = comite;
     }
 
@@ -28,7 +28,8 @@ public class Commissaire extends Personne {
 
     @Override
     public String toString() {
-        return "Commissaire{" + "comite=" + comite + '}';
+        return "Commissaire - " + super.toString() + " " + "comite=" + comite ;
+        
     }
 
     
