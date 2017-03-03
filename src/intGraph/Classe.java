@@ -21,6 +21,17 @@ public class Classe {
         this.coeff = coeff;
     }
 
+    public Classe(String nom_classe) {
+        this.nom_classe = nom_classe;
+    }
+
+    public Classe(int id_classe, String nom_classe) {
+        this.id_classe = id_classe;
+        this.nom_classe = nom_classe;
+    }
+    
+    
+
     public int getId_classe() {
         return id_classe;
     }
@@ -47,7 +58,7 @@ public class Classe {
 
     @Override
     public String toString() {
-        return "Classe{" + "id_classe=" + id_classe + ", nom_classe=" + nom_classe + ", coeff=" + coeff + '}';
+        return "" +nom_classe;
     }
     
     

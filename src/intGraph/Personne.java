@@ -9,35 +9,47 @@ package intGraph;
  *
  * @author callec
  */
-public class Proprietaire extends Personne {
-    
-    int id_proprietaire;
+public class Personne {
+    int id;
+    String nom;
+    String prenom;
+    int age;
+    int numLicence;
+    String nomClub;
 
-    public Proprietaire(int id, String nom, String prenom, int age, int numLicence, String nomClub) {
-        super(id, nom, prenom, age, numLicence, nomClub);
+    public Personne(int id, String nom, String prenom, int age, int numLicence, String nomClub) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.age = age;
+        this.numLicence = numLicence;
+        this.nomClub = nomClub;
     }
 
     
-    public Proprietaire(String nom, String prenom, int age, int numLicence, String nomClub) {
-        super(nom, prenom, age, numLicence, nomClub);
+    
+    public Personne(String nom, String prenom, int age, int numLicence, String nomClub) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.age = age;
+        this.numLicence = numLicence;
+        this.nomClub = nomClub;
     }
 
-    public Proprietaire(String nom, String prenom) {
-        super(nom, prenom);
+    public Personne(String nom, String prenom) {
+        this.nom = nom;
+        this.prenom = prenom;
     }
 
-    public Proprietaire(int id_proprietaire, String nom, String prenom) {
-        super(nom, prenom);
-        this.id_proprietaire = id_proprietaire;
+    public int getId() {
+        return id;
     }
 
-    public int getId_proprietaire() {
-        return id_proprietaire;
+    public void setId(int id) {
+        this.id = id;
     }
-
-    public void setId_proprietaire(int id_proprietaire) {
-        this.id_proprietaire = id_proprietaire;
-    }
+    
+    
 
     public String getNom() {
         return nom;
@@ -78,13 +90,6 @@ public class Proprietaire extends Personne {
     public void setNomClub(String nomClub) {
         this.nomClub = nomClub;
     }
-
-    @Override
-    public String toString() {
-        return "" + nom + " " + prenom;
-    }
-
-    
     
     
     
