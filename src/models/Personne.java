@@ -75,7 +75,6 @@ public class Personne {
         
        Calendar now = Calendar.getInstance();
        
-        
         int anneeActuelle = now.get(Calendar.YEAR);
         
         int age = anneeActuelle - this.getAnneeNaissance();

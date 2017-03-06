@@ -114,7 +114,7 @@ public class Fenetre extends javax.swing.JFrame {
 
         jLabel5.setText("Numéro du voilier :");
 
-        jButton.setText("jButton1");
+        jButton.setText("OK");
         jButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonActionPerformed(evt);
