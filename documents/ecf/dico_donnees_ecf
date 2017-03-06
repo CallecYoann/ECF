@@ -1,0 +1,38 @@
+
+
+Dictionnaire de données : 
+
+id_equipage		Int			id de l'équipage
+id_voilier		Auto_increment		id du voilier	 
+nom_voilier		Varchar			nom du voilier
+num_voile		Int			numéro du voilier
+id_resultat		Auto_increment		id du résultat
+temps_comp		Time			temps compensé : Temps réel-(Distance*Coefficient)
+temps_reel		Time			temps mis pour suivre le parcours
+distance		Int			longueur de la course en milles marins
+id_challenge		Auto_increment		id du challenge
+nom_challenge		Varchar			nom du challenge
+id_regate		Auto_increment		id de la régate
+nom_regate		Varchar			nom de la régate
+id_serie		Auto_increment		id de la série
+nom_serie		Varchar			nom de la série
+id_classe		Auto_increment		id de la classe
+nom_classe		Varchar			nom de la classe
+id_personne		Auto_increment		id de la personne
+nom_personne		Varchar			nom de la personne
+prenom_personne		Varchar			prenom de la personne 
+age_personne		Int			age de la personne 
+id_commissaire		Auto_increment		id du commissaire
+id_proprietaire		Auto_increment		id du proprietaire
+id_concurrent		Auto_increment		id du concurrent 
+id_skipper		Auto_increment		id du skipper
+id_club			Auto_increment		id du club
+nom_club		Varchar			nom du club
+num_club		Int			numéro du club
+num_regate		Int			numéro de la regate(course)
+date_regate		Date			date de la regate(course)
+num_skipper		Int			numéro du skipper
+coeff			Int			coefficient associé à chaque voilier selon sa classe
+num_licence		Int			numéro de licence
+date_debut		Date			date du début du challenge
+date_fin		Date			date de fin du challenge

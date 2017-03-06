@@ -1,0 +1,47 @@
+
+
+TRIGGER DE CREATION :
+
+CREATE TRIGGER before_insert_regate 
+BEFORE INSERT
+ON regate FOR EACH ROW
+BEGIN
+DECLARE v_date_debut DATE;
+DECLARE v_date_fin DATE;
+
+SELECT date_debut INTO v_date_debut FROM challenge WHERE id_challenge=NEW.id_challenge;
+SELECT date_fin INTO v_date_debut FROM challenge WHERE id_challenge=NEW.id_challenge;
+   IF(NEW.date_regate < v_date_debut OR NEW.date_regate > v_date_fin)
+THEN signal sqlstate '45000' set message_text = 'la date est incorrecte';
+END IF;
+END
+
+TRIGGER DE MISE A JOUR :
+
+CREATE TRIGGER before_update 
+BEFORE UPDATE 
+ON PARTICIPER FOR EACH ROW
+BEGIN
+DECLARE v_date_debut DATE;
+DECLARE v_date_fin DATE;
+
+SELECT date_debut INTO v_date_debut FROM challenge WHERE id_challenge=NEW.id_challenge;
+SELECT date_fin INTO v_date_debut FROM challenge WHERE id_challenge=NEW.id_challenge;
+   IF(NEW.date_regate < v_date_debut OR NEW.date_regate > v_date_fin)
+THEN signal sqlstate '45000' set message_text = 'la date est incorrecte';
+END IF;
+END
+
+TRIGGER DE SUPPRESSION :
+
+CREATE TRIGGER before_delete_regate
+BEFORE DELETE
+On regate FOR EACH ROW
+BEGIN
+DECLARE v_date_fin DATE;
+
+SELECT date_fin INTO v_date_fin FROM challenge WHERE id_challenge=OLD.id_challenge;
+	IF(CURDATE() < v_date_fin)
+    THEN signal sqlstate '45000' set message_text = 'la regate est toujours en cours';
+    END IF;
+END

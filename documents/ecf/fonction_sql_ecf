@@ -1,0 +1,16 @@
+FONCTION SQL : 
+
+CREATE DEFINER=`root`@`localhost` FUNCTION `new_code_regate`(id_regate1 INT) RETURNS varchar(20) CHARSET latin1
+BEGIN
+
+DECLARE v_pouet VARCHAR(20);
+DECLARE v_month_reg INT;
+DECLARE v_num_seq INT;
+DECLARE v_code_reg VARCHAR(20);
+
+SELECT code_challenge INTO v_pouet FROM challenge cha INNER JOIN regate r ON cha.id_challenge=r.id_challenge WHERE id_regate1=id_regate;
+SELECT MONTH(date_regate) INTO v_month_reg FROM regate WHERE id_regate1=id_regate;
+SELECT COUNT(id_regate) INTO v_num_seq FROM regate;
+SET v_code_reg = CONCAT(v_pouet, v_month_reg, (v_num_seq +1)) ;
+RETURN v_code_reg;
+END

@@ -1,0 +1,35 @@
+
+
+PROCEDURES STOCKEE N°1 : 
+
+CREATE PROCEDURE moyenne_distance_challenge(IN p_id_challenge INT)
+BEGIN
+SELECT nom_challenge, AVG(distance) FROM regate r
+INNER JOIN challenge c ON r.id_challenge=c.id_challenge
+WHERE c.id_challenge=p_id_challenge;
+END
+
+
+PROCEDURE STOCKEE N°2 :
+
+CREATE PROCEDURE liste_equipage_regate(IN p_id_regate INT, IN p_id_voilier INT)
+BEGIN
+SELECT nom_personne, prenom_personne, nom_regate , nom_voilier, num_skipper FROM personne p
+INNER JOIN concurrent c ON p.id_personne=c.id_personne
+INNER JOIN voilier v ON c.id_voilier=v.id_voilier
+INNER JOIN PARTICIPER par ON v.id_voilier=par.id_voilier
+INNER JOIN regate r ON par.id_regate=r.id_regate
+INNER JOIN skipper s ON v.id_voilier=s.id_voilier
+WHERE par.id_regate=p_id_regate AND par.id_voilier=p_id_voilier;
+END
+
+PROCEDURE STOCKEE N°3 : 
+
+CREATE PROCEDURE intervention_commissaire_challenge(IN p_id_challenge INT, IN p_date_debut DATE, IN p_date_fin DATE)
+BEGIN
+SELECT nom_personne, prenom_personne, comite, nom_challenge, date_regate FROM challenge cha
+INNER JOIN regate r ON cha.id_challenge=r.id_challenge
+INNER JOIN commissaire com ON r.id_commissaire=com.id_commissaire
+INNER JOIN personne p ON com.id_personne=p.id_personne
+WHERE r.id_challenge=p_id_challenge AND p_date_debut < date_regate AND p_date_fin > date_regate;
+END

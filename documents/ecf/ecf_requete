@@ -1,0 +1,24 @@
+REQUETE N°1:
+
+SELECT nom_challenge, AVG(distance) FROM regate r
+INNER JOIN challenge c ON r.id_challenge=c.id_challenge
+GROUP BY nom_challenge
+
+
+REQUETE N°2:
+
+SELECT nom_personne, prenom_personne, num_licence, num_regate, nom_regate, date_regate, nom_voilier, num_skipper FROM personne p
+INNER JOIN concurrent c ON p.id_personne=c.id_personne
+INNER JOIN voilier v ON c.id_voilier=v.id_voilier
+INNER JOIN PARTICIPER par ON v.id_voilier=par.id_voilier
+INNER JOIN regate r ON par.id_regate=r.id_regate
+INNER JOIN skipper s ON v.id_voilier=s.id_voilier
+
+REQUETE N°3:
+
+SELECT nom_regate, date_regate, nom_personne AS Commissaire, comite FROM regate r
+INNER JOIN commissaire c ON r.id_commissaire=c.id_commissaire
+INNER JOIN personne p ON c.id_personne=p.id_personne
+WHERE date_regate>CURDATE()
+
+
